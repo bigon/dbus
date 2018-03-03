@@ -995,7 +995,7 @@ bus_context_new (const DBusString *config_file,
    */
   bus_audit_init (context);
 
-  if (!bus_selinux_full_init ())
+  if (!bus_selinux_full_init (context, error))
     {
       bus_context_log (context, DBUS_SYSTEM_LOG_ERROR,
                        "SELinux enabled but D-Bus initialization failed; "
